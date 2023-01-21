@@ -13,10 +13,6 @@
 
 <style>
 	div {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: 1fr;
-		grid-column-gap: 16px;
-		grid-row-gap: 0px;
+		height: 100%;
 	}
 </style>

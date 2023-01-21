@@ -8,3 +8,13 @@
 <main class="container">
     <slot></slot>
 </main>
+
+<style>
+    .text-green {
+        color: #43a047;
+    }
+
+    .text-red {
+        color: #e53935;
+    }
+</style>
