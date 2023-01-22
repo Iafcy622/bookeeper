@@ -1,13 +1,13 @@
 <script>
-	import { Pie } from 'svelte-chartjs';
+	import { Doughnut } from 'svelte-chartjs';
 
 	const data = {
-		labels: ['Transportation', 'Meal & Food', 'Shopping', 'Grey', 'Dark Grey'],
+		labels: ['Expenditure', 'Income'],
 		datasets: [
 			{
-				data: [30, 150, 100, 40, 120],
-				backgroundColor: ['#F7464A', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360', '#AC64AD'],
-				hoverBackgroundColor: ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5', '#616774', '#DA92DB']
+				data: [300, 150],
+				backgroundColor: ["#ef4444", "#10b981"],
+				hoverBackgroundColor: ["#f87171", "#34d399"]
 			}
 		]
 	};
@@ -17,12 +17,6 @@
 	ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale);
 </script>
 
-<div>
-    <Pie {data} options={{ responsive: true, plugins: { legend: { position : "right" } } }} />
+<div class="col-span-2 mt-3 mb-6">
+    <Doughnut {data} options={{ responsive: true, aspectRatio: 5/3, plugins: { legend: { position : "right" } } }} />
 </div>
-
-<style>
-    div {
-        height: 70vh;
-    }
-</style>
