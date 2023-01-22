@@ -6,7 +6,6 @@
 	import Input from "$lib/home/Input.svelte";
 </script>
 
-<h1 class="text-2xl">Bookeeper</h1>
 <section class="">
     <SpendingIncomeCards />
     <SpendingPie />
