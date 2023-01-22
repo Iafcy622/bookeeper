@@ -7,28 +7,26 @@
 	}-${currentDate.getDate()}`;
 	let description = '';
 
-	const handleSubmit = () => {
-        console.log({
-            amount,
-            date,
-            category,
-            description
-        });
+	const handleSubmit = async (event) => {
+		const res = await fetch(event.target.action, {
+			method: event.target.method,
+			body: new FormData(event.target)
+		});
 	};
 </script>
 
-<form on:submit|preventDefault={handleSubmit}>
+<form action="/api/record" method="POST" on:submit|preventDefault={handleSubmit}>
 	<h3>Input</h3>
 	<!-- Grid -->
 	<div class="grid">
 		<label for="quantity"
 			>Amount ($)
-			<input type="number" id="amount" name="amount" bind:value={amount} min=0 />
+			<input type="number" id="amount" name="amount" bind:value={amount} min="0" />
 		</label>
 
 		<label for="category">
 			Category
-			<select id="category" required bind:value={category}>
+			<select id="category" name="category" required bind:value={category}>
 				<option value="" selected disabled>Select a category…</option>
 				<option value="meal&food">Meal & Food</option>
 				<option value="transportation">Transportation</option>
