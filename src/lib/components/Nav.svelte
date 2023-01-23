@@ -1,4 +1,4 @@
-<nav class="bg-stone-100 dark:bg-stone-800 py-3">
+<nav class="bg-stone-100 dark:bg-stone-900 py-3">
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		fill="none"

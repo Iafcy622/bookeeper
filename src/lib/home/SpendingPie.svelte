@@ -6,8 +6,8 @@
 		datasets: [
 			{
 				data: [300, 150],
-				backgroundColor: ["#ef4444", "#10b981"],
-				hoverBackgroundColor: ["#f87171", "#34d399"]
+				backgroundColor: ['#ef4444', '#10b981'],
+				hoverBackgroundColor: ['#f87171', '#34d399']
 			}
 		]
 	};
@@ -18,5 +18,14 @@
 </script>
 
 <div class="col-span-2 my-3 py-3">
-    <Doughnut {data} options={{ responsive: true, aspectRatio: 5/3, plugins: { legend: { position : "right" } } }} />
+	<Doughnut
+		{data}
+		options={{
+			responsive: true,
+			aspectRatio: 2,
+			plugins: {
+				legend: { position: 'right', labels: { color: '#f5f5f4', padding: 15, font: { size: 14 } } }
+			}
+		}}
+	/>
 </div>
