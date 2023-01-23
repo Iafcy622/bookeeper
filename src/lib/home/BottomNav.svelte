@@ -1,4 +1,4 @@
-<div class="w-screen h-14 bg-zinc-800 fixed bottom-0 inset-x-0 opacity-90 grid grid-cols-2">
+<div class="w-screen h-14 dark:bg-zinc-800 fixed bottom-0 inset-x-0 opacity-90 grid grid-cols-2">
 	<button class="font-medium text-violet-400 text-lg">Home</button>
 	<button class="font-medium text-lg">Account</button>
 	<button class="absolute p-3 bg-violet-500 rounded-full -top-6 inset-x-0 mx-auto w-12 h-12">

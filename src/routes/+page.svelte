@@ -5,7 +5,7 @@
 	import DailyTable from "$lib/home/DailyTable.svelte";
 </script>
 
-<section class="">
+<section class="mt-14">
     <SpendingIncomeCards />
     <SpendingPie />
 </section>

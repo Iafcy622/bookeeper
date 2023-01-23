@@ -33,9 +33,9 @@
 
 <section class="mb-24">
 	<div class="mb-6">
-		<div class="flex justify-between mb-3 mx-1">
+		<div class="flex justify-between items-center mb-3 mx-1">
 			<h3 class="text-xl">2023/01/22</h3>
-			<p class="text-xl font-medium {total < 0 ? 'text-red-400' : 'text-emerald-400'}">$ {total}</p>
+			<p class="text-2xl font-medium {total < 0 ? 'text-red-400' : 'text-emerald-400'}">$ {total}</p>
 		</div>
 		{#each records as record (record.id)}
 			<Card classes={'bg-stone-300 p-4 mb-4 dark:bg-zinc-800'}>
@@ -70,10 +70,10 @@
 			</Card>
 		{/each}
 	</div>
-	<div class="mb-3">
+	<div class="mb-6">
 		<div class="flex justify-between mb-3 mx-1">
 			<h3 class="text-xl">2023/01/22</h3>
-			<p class="text-xl {total < 0 ? 'text-red-400' : 'text-emerald-400'}">$ {total}</p>
+			<p class="text-xl font-medium {total < 0 ? 'text-red-400' : 'text-emerald-400'}">$ {total}</p>
 		</div>
 		{#each records as record (record.id)}
 			<Card classes={'bg-stone-300 p-4 mb-4 dark:bg-zinc-800'}>
