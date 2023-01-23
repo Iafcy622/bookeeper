@@ -17,6 +17,6 @@
 	ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale);
 </script>
 
-<div class="col-span-2 mt-3 mb-6">
-    <Doughnut {data} options={{ responsive: true, aspectRatio: 5/3, plugins: { legend: { position : "right" } } }} />
+<div class="col-span-2 my-3">
+    <Doughnut {data} options={{ responsive: true, aspectRatio: 2, plugins: { legend: { position : "right" } } }} />
 </div>
