@@ -1,26 +1,48 @@
 <script>
 	import Card from '$lib/components/Card.svelte';
+
+	let expense = {
+		title: '',
+		category: null,
+		amount: 0,
+		date: '24/01/2023 23:03',
+		account: 'Cash',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, suscipit.'
+	};
 </script>
 
 <section class="text-2xl">
-	<h2 class="mb-6">Expense title</h2>
+	<input
+		type="text"
+		class="form-control block w-full px-3 py-2 mb-6 text-2xl font-normal bg-clip-padding border-b border-solid border-stone-200
+        transition ease-in-out dark:bg-stone-900 dark:focus:bg-stone-800 dark:focus:border-stone-300 focus:outline-none"
+		id="expense_title"
+		placeholder="Expense title"
+		bind:value={expense.title}
+	/>
 	<div class="mb-6">
-		<div class="bg-stone-900 rounded-full px-4 py-2 border-2 inline-flex items-center">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke-width="2"
-				stroke="currentColor"
-				class="w-6 h-6"
-			>
-				<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-			</svg>
-			<p class="text-xl">Add category</p>
-		</div>
+		{#if !expense.category}
+			<div class="bg-stone-900 rounded-full px-2 py-1 border-2 inline-flex items-center">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="2"
+					stroke="currentColor"
+					class="w-4 h-4 mr-2"
+				>
+					<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+				</svg>
+				<p class="text-lg mr-2">Add category</p>
+			</div>
+		{:else}
+			<div class="bg-red-500 rounded-full px-4 py-1 border-2 inline-flex items-center">
+				<p class="text-lg">{expense.category}</p>
+			</div>
+		{/if}
 	</div>
 	<div>
-        <button class="bg-stone-300 p-4 mb-6 dark:bg-zinc-800 w-full text-left rounded-xl">
+		<button class="bg-stone-300 p-4 mb-6 dark:bg-zinc-800 w-full text-left rounded-xl">
 			<div class="flex items-center justify-start mb-3">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -38,9 +60,7 @@
 				</svg>
 				<p class="text-xl font-medium ">Amount</p>
 			</div>
-			<p class="text-3xl dark:text-stone-300">
-				$ 500.00
-			</p>
+			<p class="text-3xl dark:text-stone-300">$ {expense.amount}</p>
 		</button>
 		<button class="bg-stone-300 p-4 mb-6 dark:bg-zinc-800 w-full text-left rounded-xl">
 			<div class="flex items-center justify-start mb-3">
@@ -60,7 +80,7 @@
 				</svg>
 				<p class="text-xl font-medium">Date</p>
 			</div>
-			<p class="text-lg dark:text-stone-300">24/01/2023 23:03</p>
+			<p class="text-xl dark:text-stone-300">{expense.date}</p>
 		</button>
 		<button class="bg-stone-300 p-4 mb-6 dark:bg-zinc-800 w-full text-left rounded-xl">
 			<div class="flex items-center justify-start mb-3">
@@ -80,9 +100,9 @@
 				</svg>
 				<p class="text-xl font-medium">Pay with</p>
 			</div>
-			<p class="text-lg dark:text-stone-300">Cash</p>
+			<p class="text-xl dark:text-stone-300">{expense.account}</p>
 		</button>
-        <button class="bg-stone-300 p-4 mb-6 dark:bg-zinc-800 w-full text-left rounded-xl">
+		<button class="bg-stone-300 p-4 mb-6 dark:bg-zinc-800 w-full text-left rounded-xl">
 			<div class="flex items-center justify-start mb-3">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -105,4 +125,16 @@
 			</p>
 		</button>
 	</div>
+	<button class="fixed right-6 bottom-6 bg-green-400 rounded-full p-3">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke-width="2"
+			stroke="currentColor"
+			class="w-6 h-6"
+		>
+			<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+		</svg>
+	</button>
 </section>
