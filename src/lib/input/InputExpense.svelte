@@ -1,5 +1,7 @@
 <script>
-	import Card from '$lib/components/Card.svelte';
+	import NumberInput from '../components/input/NumberInput.svelte';
+
+	let numInput = false;
 
 	let expense = {
 		title: '',
@@ -42,7 +44,10 @@
 		{/if}
 	</div>
 	<div>
-		<button class="bg-stone-300 p-4 mb-6 dark:bg-zinc-800 w-full text-left rounded-xl">
+		<button
+			class="bg-stone-300 p-4 mb-6 dark:bg-zinc-800 w-full text-left rounded-xl"
+			on:click={() => numInput = !numInput}
+		>
 			<div class="flex items-center justify-start mb-3">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -138,3 +143,5 @@
 		</svg>
 	</button>
 </section>
+
+<NumberInput activated={numInput} />
