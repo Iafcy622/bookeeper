@@ -23,7 +23,7 @@
     dark:bg-stone-900 border-stone-500
     transition-all {activated ? '' : 'translate-y-full'}"
 >
-	<div class="mb-28">
+	<div class="mb-24">
 		<slot></slot>
 	</div>
 	<div class="fixed bottom-0 left-0 w-full flex justify-between py-4 px-6">

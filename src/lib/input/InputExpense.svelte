@@ -6,15 +6,15 @@
 		amount: false,
 		description: false,
 		date: false
-	}
+	};
 
 	let expense = {
 		title: '',
 		category: null,
-		amount: 0.00,
+		amount: 0.0,
 		date: '24/01/2023 23:03',
 		account: 'Cash',
-		description: 'aaaaaaaaaaaaaaaa'
+		description: ''
 	};
 
 	const doneInput = () => {
@@ -23,7 +23,7 @@
 		toggleInput.date = false;
 
 		console.log(expense);
-	}
+	};
 </script>
 
 <section class="text-2xl">
@@ -59,7 +59,7 @@
 	<div>
 		<button
 			class="bg-stone-300 p-4 mb-6 dark:bg-zinc-800 w-full text-left rounded-xl"
-			on:click={() => toggleInput.amount = true}
+			on:click={() => (toggleInput.amount = true)}
 		>
 			<div class="flex items-center justify-start mb-3">
 				<svg
@@ -120,9 +120,9 @@
 			</div>
 			<p class="text-xl dark:text-stone-300">{expense.account}</p>
 		</button>
-		<button 
+		<button
 			class="bg-stone-300 p-4 mb-6 dark:bg-zinc-800 w-full text-left rounded-xl"
-			on:click={() => toggleInput.description = true}
+			on:click={() => (toggleInput.description = true)}
 		>
 			<div class="flex items-center justify-start mb-3">
 				<svg
@@ -141,9 +141,13 @@
 				</svg>
 				<p class="text-xl font-medium ">Description</p>
 			</div>
-			<p class="text-lg dark:text-stone-300">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, suscipit.
-			</p>
+			{#if expense.description}
+				<p class="text-lg dark:text-stone-300 whitespace-pre-wrap">
+					{expense.description}
+				</p>
+			{:else}
+				<p class="text-lg dark:text-stone-400 whitespace-pre-wrap">No description</p>
+			{/if}
 		</button>
 	</div>
 	<button class="fixed right-6 bottom-6 bg-green-400 rounded-full p-3">
@@ -160,5 +164,15 @@
 	</button>
 </section>
 
-<NumberInput bind:amount={expense.amount} activated={toggleInput.amount} on:closePopup={() => toggleInput.amount = false} on:done={doneInput} />
-<TextInput bind:description={expense.description} activated={toggleInput.description} on:closePopup={() => toggleInput.description = false} on:done={doneInput} />
+<NumberInput
+	bind:amount={expense.amount}
+	activated={toggleInput.amount}
+	on:closePopup={() => (toggleInput.amount = false)}
+	on:done={doneInput}
+/>
+<TextInput
+	bind:description={expense.description}
+	activated={toggleInput.description}
+	on:closePopup={() => (toggleInput.description = false)}
+	on:done={doneInput}
+/>
