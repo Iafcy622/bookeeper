@@ -19,13 +19,12 @@
 	on:click={close}
 />
 <section
-	class="w-full fixed bottom-0 right-0 rounded-t-2xl border-x-2 border-t-2 py-4 px-6 z-20 h-2/3
+	class="w-full fixed bottom-0 right-0 rounded-t-2xl border-x-2 border-t-2 py-4 px-6 z-20 min-h-[35%]
     dark:bg-stone-900 border-stone-500
     transition-all {activated ? '' : 'translate-y-full'}"
 >
-	<div>
-		<h2>Amount</h2>
-		<h3>$ 0.00</h3>
+	<div class="mb-28">
+		<slot></slot>
 	</div>
 	<div class="fixed bottom-0 left-0 w-full flex justify-between py-4 px-6">
 		<button class="p-2 border-2 rounded-full border-stone-500 bg-stone-900 z-20" on:click={close}>

@@ -1,19 +1,27 @@
 <script>
 	import NumberInput from '../components/input/NumberInput.svelte';
+	import TextInput from '../components/input/TextInput.svelte';
 
-	let numInput = false;
+	let toggleInput = {
+		amount: false,
+		description: false,
+		date: false
+	}
 
 	let expense = {
 		title: '',
 		category: null,
-		amount: 0,
+		amount: 0.00,
 		date: '24/01/2023 23:03',
 		account: 'Cash',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, suscipit.'
+		description: 'aaaaaaaaaaaaaaaa'
 	};
 
 	const doneInput = () => {
-		numInput = false;
+		toggleInput.amount = false;
+		toggleInput.description = false;
+		toggleInput.date = false;
+
 		console.log(expense);
 	}
 </script>
@@ -51,7 +59,7 @@
 	<div>
 		<button
 			class="bg-stone-300 p-4 mb-6 dark:bg-zinc-800 w-full text-left rounded-xl"
-			on:click={() => numInput = !numInput}
+			on:click={() => toggleInput.amount = true}
 		>
 			<div class="flex items-center justify-start mb-3">
 				<svg
@@ -112,7 +120,10 @@
 			</div>
 			<p class="text-xl dark:text-stone-300">{expense.account}</p>
 		</button>
-		<button class="bg-stone-300 p-4 mb-6 dark:bg-zinc-800 w-full text-left rounded-xl">
+		<button 
+			class="bg-stone-300 p-4 mb-6 dark:bg-zinc-800 w-full text-left rounded-xl"
+			on:click={() => toggleInput.description = true}
+		>
 			<div class="flex items-center justify-start mb-3">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -149,4 +160,5 @@
 	</button>
 </section>
 
-<NumberInput activated={numInput} on:closePopup={() => numInput = false} on:done={doneInput} />
+<NumberInput bind:amount={expense.amount} activated={toggleInput.amount} on:closePopup={() => toggleInput.amount = false} on:done={doneInput} />
+<TextInput bind:description={expense.description} activated={toggleInput.description} on:closePopup={() => toggleInput.description = false} on:done={doneInput} />
