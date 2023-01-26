@@ -31,7 +31,7 @@
 	let total = 244;
 </script>
 
-<section class="mb-24">
+<section class="mb-24 mt-6">
 	<div class="mb-6">
 		<div class="flex justify-between items-center mb-3 mx-1">
 			<h3 class="text-xl">2023/01/22</h3>

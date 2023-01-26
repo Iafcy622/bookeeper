@@ -11,6 +11,11 @@
 		account: 'Cash',
 		description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, suscipit.'
 	};
+
+	const doneInput = () => {
+		numInput = false;
+		console.log(expense);
+	}
 </script>
 
 <section class="text-2xl">
@@ -144,4 +149,4 @@
 	</button>
 </section>
 
-<NumberInput activated={numInput} />
+<NumberInput activated={numInput} on:closePopup={() => numInput = false} on:done={doneInput} />

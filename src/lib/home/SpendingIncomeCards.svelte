@@ -5,7 +5,7 @@
 	let income = 900;
 </script>
 
-<div class="border-b py-3 border-stone-300 dark:border-stone-600">
+<div class="border-b py-3 border-stone-300 dark:border-stone-600 mb-6">
 	<div class="px-2 py-1 flex items-center">
 		<h2 class="text-5xl font-semibold mr-4">
 			$ 200.00 

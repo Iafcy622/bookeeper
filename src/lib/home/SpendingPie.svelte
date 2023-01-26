@@ -17,7 +17,7 @@
 	ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale);
 </script>
 
-<div class="col-span-2 my-3 py-3">
+<!-- <div class="col-span-2 my-3 py-3"> -->
 	<Doughnut
 		{data}
 		options={{
@@ -28,4 +28,4 @@
 			}
 		}}
 	/>
-</div>
+<!-- </div> -->
