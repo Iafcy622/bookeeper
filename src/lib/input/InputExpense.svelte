@@ -1,11 +1,13 @@
 <script>
-	import NumberInput from '../components/input/NumberInput.svelte';
+	// import NumberInput from './components/input/NumberInput.svelte';
+	import CategoryInput from '../components/input/CategoryInput.svelte';
 	import TextInput from '../components/input/TextInput.svelte';
 
 	let toggleInput = {
 		amount: false,
 		description: false,
-		date: false
+		date: false,
+		category: false
 	};
 
 	let expense = {
@@ -18,9 +20,7 @@
 	};
 
 	const doneInput = () => {
-		toggleInput.amount = false;
-		toggleInput.description = false;
-		toggleInput.date = false;
+		Object.keys(toggleInput).forEach((v) => (toggleInput[v] = false));
 
 		console.log(expense);
 	};
@@ -29,15 +29,18 @@
 <section class="text-2xl">
 	<input
 		type="text"
-		class="form-control block w-full px-3 py-2 mb-6 text-2xl font-normal bg-clip-padding border-b border-solid border-stone-200
+		class="block w-full px-3 py-2 mb-6 text-2xl font-normal bg-clip-padding border-b border-solid border-stone-200
         transition ease-in-out dark:bg-stone-900 dark:focus:bg-stone-800 dark:focus:border-stone-300 focus:outline-none"
 		id="expense_title"
 		placeholder="Expense title"
 		bind:value={expense.title}
 	/>
 	<div class="mb-6">
-		{#if !expense.category}
-			<div class="bg-stone-900 rounded-full px-2 py-1 border-2 inline-flex items-center">
+		<button
+			class="bg-stone-900 rounded-full px-2 py-1 border-2 inline-flex items-center"
+			on:click={() => (toggleInput.category = true)}
+		>
+			{#if !expense.category}
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
@@ -48,13 +51,11 @@
 				>
 					<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
 				</svg>
-				<p class="text-lg mr-2">Add category</p>
-			</div>
-		{:else}
-			<div class="bg-red-500 rounded-full px-4 py-1 border-2 inline-flex items-center">
-				<p class="text-lg">{expense.category}</p>
-			</div>
-		{/if}
+			{/if}
+			<p class="text-lg mx-2">
+				{ expense.category ? expense.category : "Add category"}
+			</p>
+		</button>
 	</div>
 	<div>
 		<button
@@ -78,7 +79,16 @@
 				</svg>
 				<p class="text-xl font-medium ">Amount</p>
 			</div>
-			<p class="text-3xl dark:text-stone-300">$ {expense.amount}</p>
+			<input
+				type="number"
+				class="block w-full px-3 py-2 mb-6 text-2xl font-normal bg-clip-padding border-b border-solid border-stone-200
+        		transition ease-in-out dark:bg-zinc-800 dark:focus:border-stone-300 focus:outline-none"
+				id="expense_title"
+				placeholder="Expense title"
+				step="0.01"
+				bind:value={expense.amount}
+			/>
+			<!-- <p class="text-3xl dark:text-stone-300">$ {expense.amount}</p> -->
 		</button>
 		<button class="bg-stone-300 p-4 mb-6 dark:bg-zinc-800 w-full text-left rounded-xl">
 			<div class="flex items-center justify-start mb-3">
@@ -100,7 +110,10 @@
 			</div>
 			<p class="text-xl dark:text-stone-300">{expense.date}</p>
 		</button>
-		<button class="bg-stone-300 p-4 mb-6 dark:bg-zinc-800 w-full text-left rounded-xl">
+		<button
+			class="bg-stone-300 p-4 mb-6 dark:bg-zinc-800 w-full text-left rounded-xl"
+			on:click={() => (toggleInput.account = true)}
+		>
 			<div class="flex items-center justify-start mb-3">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -164,15 +177,22 @@
 	</button>
 </section>
 
-<NumberInput
+<!-- <NumberInput
 	bind:amount={expense.amount}
 	activated={toggleInput.amount}
 	on:closePopup={() => (toggleInput.amount = false)}
 	on:done={doneInput}
-/>
+/> -->
 <TextInput
 	bind:description={expense.description}
 	activated={toggleInput.description}
 	on:closePopup={() => (toggleInput.description = false)}
 	on:done={doneInput}
 />
+<CategoryInput
+	bind:category={expense.category}
+	activated={toggleInput.category}
+	on:closePopup={() => (toggleInput.category = false)}
+	on:done={doneInput}
+/>
+<!-- https://github.com/mskocik/svelty-picker -->
